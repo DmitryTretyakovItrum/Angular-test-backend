@@ -25,12 +25,11 @@ RUN curl -fsSL https://bun.sh/install | bash \
 VOLUME ["/data/db"]
 
 # Copy package files and install dependencies
-COPY package.json bun.lockb ./
+COPY package.json bun.lockb tsconfig.json ./
 RUN $HOME/.bun/bin/bun install
 
 # Copy application files
-COPY . .
-RUN rm -rf node_modules
+COPY src ./src
 
 # Expose the application port
 EXPOSE 3100

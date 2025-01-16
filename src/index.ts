@@ -9,8 +9,8 @@ import { Types } from 'mongoose';
 
 connectDB()
   .then(() => seedDatabase())
-  .then(() => console.log('Database seeded'))
-  .catch(console.error);
+  .then(() => Logger.i('Database seeded'))
+  .catch(Logger.e);
 
 const app = new Elysia()
   .use(swagger())
